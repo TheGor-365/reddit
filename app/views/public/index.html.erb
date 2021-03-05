@@ -31,14 +31,12 @@
       <p class="h5 mb-4">Up and cumming Comunities</p>
 
       <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
+        <% @communities.each do |community| %>
+          <li class="list-group-item"><%= link_to community.name, community_path(community), class: 'text-decoration-none' %></li>
+        <% end %>
       </ul>
 
-      <%= link_to 'View All', '#', class: 'btn btn-primary btn-sm mt-4' %>
+      <%= link_to 'View All', communities_path, class: 'btn btn-primary btn-sm mt-4' %>
     </div>
   </div>
 </div>
