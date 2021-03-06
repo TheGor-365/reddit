@@ -7,6 +7,11 @@ class CommunitiesController < ApplicationController
     @communities = Community.all
   end
 
+  def show
+    @posts = @community.posts
+    @subscriber_count = @community.subscribers.count
+  end
+
   def new
     @community = Community.new
   end
@@ -20,10 +25,6 @@ class CommunitiesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @posts = @community.posts
   end
 
   private
