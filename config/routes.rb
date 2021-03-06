@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscriptions
+  resources :comments, only: [ :create ]
 
   get 'u/:username' => 'public#profile', as: :profile
 
