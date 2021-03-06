@@ -1,4 +1,4 @@
-<div class="container">
+<% unless account_signed_in? %>
   <div class="row">
     <div class="col">
       <p class="h4">Trending Today</p>
@@ -18,30 +18,27 @@
       Trending 4
     </div>
   </div>
-  <div class="row mt-4">
-    <div class="col">
-      <p class="h4">Popular Posts</p>
+<% end %>
+<div class="row mt-4">
+  <div class="col">
+    <p class="h4">Popular Posts</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-8">
+    <div class="card p-3">
+      <%= render partial: 'posts/list', locals: { posts: @posts } %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-8">
-      <div class="card p-3">
-        <% @posts.each do |post| %>
-          <h4><%= link_to post.title, community_post_path(post.community_id, post), class: 'text-decoration-none' %></h4>
-          <p><%= truncate post.body, length: 200 %></p>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-4">
-      <p class="h5 mb-4">Up and cumming Comunities</p>
+  <div class="col-4">
+    <p class="h5 mb-4">Up and cumming Comunities</p>
 
-      <ul class="list-group">
-        <% @communities.each do |community| %>
-          <li class="list-group-item"><%= link_to community.name, community_path(community), class: 'text-decoration-none' %></li>
-        <% end %>
-      </ul>
+    <ul class="list-group">
+      <% @communities.each do |community| %>
+        <li class="list-group-item"><%= link_to community.name, community_path(community), class: 'text-decoration-none' %></li>
+      <% end %>
+    </ul>
 
-      <%= link_to 'View All', communities_path, class: 'btn btn-primary btn-sm mt-4' %>
-    </div>
+    <%= link_to 'View All', communities_path, class: 'btn btn-primary btn-sm mt-4' %>
   </div>
 </div>

@@ -1,0 +1,5 @@
+<% posts.each do |post| %>
+  <small><%= link_to post.community.name, class: 'text-decoration-none' %> Posted by <%= link_to post.account.full_name, profile_path(post.account.username), class: 'text-decoration-none' %> <%= time_ago_in_words post.created_at %> ago</small>
+  <h4><%= link_to post.title, community_post_path(post.community_id, post), class: 'text-decoration-none' %></h4>
+  <p><%= truncate post.body, length: 200 %></p>
+<% end %>

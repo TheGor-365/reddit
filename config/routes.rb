@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  get 'u/:username' => 'public#profile', as: :profile
+
 end
