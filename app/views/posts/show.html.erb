@@ -1,8 +1,8 @@
-<h2><%= @post.title %></h2>
+<p class="h4"><%= @post.title %></p>
 
-<%= simple_format @post.body %>
+<%= simple_format @post.body, class: 'text-muted' %>
 
-<div id="post-comments">
+<div class="mb-3" id="post-comments">
   <%= render partial: 'posts/comments', locals: { comments: @post.comments } %>
 </div>
 

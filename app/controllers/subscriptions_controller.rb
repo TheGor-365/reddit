@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
     @subscription.account_id = current_account.id
     @subscription.save
 
-    redirect_to communities_path(@subscription.community_id)
+    redirect_to community_path(@subscription.community_id)
   end
 
   def subscription_params
