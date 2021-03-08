@@ -10,7 +10,11 @@ require("channels")
 
 import 'bootstrap'
 import '../stylesheets/application'
+import '../includes/vote'
 import "@fortawesome/fontawesome-free/css/all.css";
+
+window.jQuery = $;
+window.$ = $;
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
